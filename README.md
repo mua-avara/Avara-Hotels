@@ -44,3 +44,12 @@ All paths are relative, so the site works under that sub-path and on a custom do
 - Remove `<meta name="robots" content="noindex, nofollow">` from `index.html`.
 - Replace `robots.txt` with the commented "at launch" version inside it.
 - Add the custom domain under Settings → Pages (this creates a `CNAME` file).
+
+## Versions and undo
+
+Every commit is a complete copy of the site, kept on this Mac and on GitHub. Publishing a new version never deletes an old one.
+
+- **See past versions:** on GitHub, open **Commits** and click **Browse files** next to any entry.
+- **Named versions:** listed under **Tags**. `v1-preview` is the first preview (site split into files, WebP photos, compressed video).
+- **Undo a change:** use `git revert <commit>` (or ask Claude to "go back to v1-preview" / "undo the last change"), then push. This adds a new commit that restores the old version, so the history stays complete.
+- **Routine:** change → check on a local preview → commit → push once approved. GitHub Pages updates about 30 seconds after a push.
