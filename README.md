@@ -6,8 +6,9 @@ Static site, no build step. Open `index.html` through any web server.
 index.html        page markup (all views, hash-routed)
 css/style.css     all styles
 js/main.js        all scripts (routing, i18n dictionary, booking popup, map)
-images/           photos (JPEG)
-media/hero.mp4    home page hero video
+images/           photos (WebP)
+media/hero-av1.mp4 hero video, AV1 (smaller, modern browsers)
+media/hero.mp4    hero video, H.264 fallback
 robots.txt        blocks search engines while this is a preview
 .nojekyll         tells GitHub Pages to serve files as they are
 _archive/         the old single-file version (not published, ignored by Git)
