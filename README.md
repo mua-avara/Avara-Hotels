@@ -45,6 +45,10 @@ All paths are relative, so the site works under that sub-path and on a custom do
 - Replace `robots.txt` with the commented "at launch" version inside it.
 - Add the custom domain under Settings → Pages (this creates a `CNAME` file).
 
+## Cache busting
+
+`index.html` loads `css/style.css?v=…` and `js/main.js?v=…`. The `v` value is a short hash of each file, so browsers fetch a changed file immediately instead of using a cached copy. Run `./tools/bust.sh` before every commit that changes the CSS or JS.
+
 ## Versions and undo
 
 Every commit is a complete copy of the site, kept on this Mac and on GitHub. Publishing a new version never deletes an old one.
