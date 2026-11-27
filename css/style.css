@@ -717,3 +717,27 @@ nav a:active,.link:active,.cl a:active{opacity:.6;transition:opacity .1s ease-ou
 .rs-card,.pk,.rs-chip span,.rs-in,.gm-leg,.cal-d.s{border:1px solid var(--ink)}
 :root{--line:rgba(107,62,46,.55)}
 }
+
+/* ---- Home "The north is still unwritten": Aman-style intro + card row ---- */
+#explore .ex-in p{margin:18px 0 0;max-width:34ch;font-size:15px;line-height:1.7}
+#explore .tiles{display:flex;margin-top:0;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+#explore .tiles::-webkit-scrollbar{display:none}
+#explore .tiles>div{scroll-snap-align:start;transition:opacity .6s var(--e)}
+#explore .tiles>div.peek{opacity:.4}
+#explore .tiles .photo{aspect-ratio:1/1;margin-bottom:18px}
+#explore .tiles h3{font-size:22px;margin-bottom:10px}
+#explore .tiles p{font-size:14px;line-height:1.7;max-width:36ch}
+@media (min-width:821px){
+#explore{display:grid;grid-template-columns:minmax(220px,30%) minmax(0,1fr);column-gap:clamp(32px,5vw,96px);align-items:start;padding-right:0}
+#explore .ex-in h2{max-width:12ch}
+#explore .tiles{gap:clamp(24px,3.2vw,56px)}
+#explore .tiles>div{flex:0 0 clamp(240px,40%,460px)}
+#explore .tiles::after{content:"";flex:0 0 1px;margin-left:calc(5vw - clamp(24px,3.2vw,56px))}
+}
+@media (max-width:820px){
+#explore{--exg:22px}#explore .ex-in{margin-bottom:28px}
+#explore .tiles{gap:16px;margin-right:calc(-1 * var(--exg,20px));padding-right:0}
+#explore .tiles>div{flex:0 0 78%}
+#explore .tiles::after{content:"";flex:0 0 1px;margin-left:calc(var(--exg,20px) - 16px)}
+}
+@media (prefers-reduced-motion:reduce){#explore .tiles>div{transition:none}}
