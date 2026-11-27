@@ -741,3 +741,15 @@ nav a:active,.link:active,.cl a:active{opacity:.6;transition:opacity .1s ease-ou
 #explore .tiles::after{content:"";flex:0 0 1px;margin-left:calc(var(--exg,20px) - 16px)}
 }
 @media (prefers-reduced-motion:reduce){#explore .tiles>div{transition:none}}
+
+/* ---- Apple-style gestures ---- */
+.rs-grab{display:none}
+@media (max-width:820px){
+.rs-card{overscroll-behavior:contain}
+.rs-grab{display:flex;justify-content:center;position:absolute;top:0;left:0;right:0;height:30px;padding-top:9px;z-index:4}
+.rs-grab::before{content:"";width:40px;height:5px;border-radius:3px;background:rgba(255,255,255,.9);box-shadow:0 1px 4px rgba(28,17,10,.25)}
+}
+@media (max-width:820px) and (prefers-reduced-motion:no-preference){
+.rs-card{transform:translateY(100%)}
+.rs.open .rs-card{transform:none;transition:transform .5s cubic-bezier(.2,.9,.25,1)}
+}
