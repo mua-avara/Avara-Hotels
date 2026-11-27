@@ -367,3 +367,13 @@ if(!p.querySelector('.hit')){var NS='http://www.w3.org/2000/svg',h=document.crea
 p.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();p.dispatchEvent(new Event('click'))}})})})();
 
 ;
+
+/* ---- v2: hero video respects reduced motion and data-saving connections ---- */
+(function(){
+var v=document.querySelector('.fs-slide video');if(!v)return;
+var c=navigator.connection||{},slow=c.saveData||/(^|-)2g$/.test(c.effectiveType||'');
+var rm=window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches;
+if(rm||slow){try{v.pause()}catch(x){}v.removeAttribute('autoplay');[].slice.call(v.querySelectorAll('source')).forEach(function(s){s.remove()});v.load();v.classList.add('still')}
+var pp=document.querySelector('.fs-pp');
+var on=!rm;if(pp)pp.addEventListener('click',function(){on=!on;if(!on){v.pause()}else if(!v.classList.contains('still')){var r=v.play();if(r&&r.catch)r.catch(function(){})}});
+})();
